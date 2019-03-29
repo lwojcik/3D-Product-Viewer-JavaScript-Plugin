@@ -36,7 +36,7 @@ function init360Viewer(options) {
         o.keys,
         o.scroll,
         o.dragInterval,
-        o.reverse,
+        o.inverse,
     );
 }
 
@@ -56,7 +56,8 @@ function pdt360DegViewer(id, n, p, t, playable, autoPlay, draggable, mouseMove, 
         (buttons ? 'buttons' : ''),
         (keys ? 'keys' : ''),
         (scroll ? 'scroll' : ''),
-        (dragInterval ? 'dragInterval' : '')
+        (dragInterval ? 'dragInterval' : ''),
+        (reverse ? 'inverse' : '')
     ];
     // console.log(state.join(' ').replace(/\s+/g, ' '));
 
@@ -73,7 +74,7 @@ function pdt360DegViewer(id, n, p, t, playable, autoPlay, draggable, mouseMove, 
         + (buttons ? ' buttons' : '')
         + (keys ? ' keys' : '')
         + (scroll ? ' scroll' : '')
-        + (dragInterval ? 'dragInterval' : '')
+        + (inverse ? ' inverse' : '')
         + ' " draggable="false" src="' + src(p, i, t) + '">';
     mainDiv.innerHTML += '<div class="loader"><div class="three-bounce"><div class="one"></div><div class="two"></div><div class="three"></div></div></div>';
 
@@ -304,6 +305,8 @@ function pdt360DegViewer(id, n, p, t, playable, autoPlay, draggable, mouseMove, 
             }, t);
         }
     }
+
+    // TODO: support for 'inverse' parameter
 
     function nxt(e) {
         if (i <= 1) {
